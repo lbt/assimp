@@ -1,0 +1,31 @@
+Name: libassimp
+Summary: Asset Import Library
+Version: 0.0.1
+Release: 1
+Group: Graphics
+License: BSD
+Builder: cmake
+Sources:
+  - libassimp-%version.tar.gz
+PkgBR:
+  - cmake
+PkgConfigBR:
+  - zlib
+URL: "https://github.com/assimp/assimp"
+Patches: []
+SetupOptions: -q -n src
+
+Files:
+  - '%{_libdir}/libassimp.so.3'
+  - '%{_libdir}/libassimp.so.3.0.1'
+  - '%{_bindir}/assimp'
+
+SubPackages:
+    - Name: devel
+      Summary: Devel files
+      Group: Graphics
+      Files:
+        - '%{_libdir}/cmake/assimp-3.0/'
+        - '%{_includedir}/assimp'
+        - '%{_libdir}/libassimp.so'
+        - '%{_libdir}/pkgconfig/assimp.pc'
